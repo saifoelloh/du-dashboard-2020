@@ -1,26 +1,29 @@
-import React, { lazy, Suspense } from 'react';
-import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import React, { Suspense, lazy } from 'react';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+
+import Badges from './example-pages/Badges';
+import Buttons from './example-pages/Buttons';
+import Dropdowns from './example-pages/Dropdowns';
+import FormsControls from './example-pages/FormsControls';
+import FormsLayout from './example-pages/FormsLayout';
+import Icons from './example-pages/Icons';
+import NavigationMenus from './example-pages/NavigationMenus';
+import Pagination from './example-pages/Pagination';
+import ProgressBars from './example-pages/ProgressBars';
+import RegularTables1 from './example-pages/RegularTables1';
+import RegularTables4 from './example-pages/RegularTables4';
+import Scrollable from './example-pages/Scrollable';
+import UtilitiesHelpers from './example-pages/UtilitiesHelpers';
+import Kelas from './pages/Kelas/index.js';
+import Peserta from './pages/Peserta/index.js';
+import { LeftSidebar, PresentationLayout } from './layout-blueprints';
 
 // Layout Blueprints
 
-import { LeftSidebar, PresentationLayout } from './layout-blueprints';
 
 // Example Pages
 
-import Buttons from './example-pages/Buttons';
-import Dropdowns from './example-pages/Dropdowns';
-import NavigationMenus from './example-pages/NavigationMenus';
-import ProgressBars from './example-pages/ProgressBars';
-import Pagination from './example-pages/Pagination';
-import Scrollable from './example-pages/Scrollable';
-import Badges from './example-pages/Badges';
-import Icons from './example-pages/Icons';
-import UtilitiesHelpers from './example-pages/UtilitiesHelpers';
-import RegularTables1 from './example-pages/RegularTables1';
-import RegularTables4 from './example-pages/RegularTables4';
-import FormsLayout from './example-pages/FormsLayout';
-import FormsControls from './example-pages/FormsControls';
 
 const DashboardDefault = lazy(() => import('./example-pages/DashboardDefault'));
 const Cards3 = lazy(() => import('./example-pages/Cards3'));
@@ -89,6 +92,8 @@ const Routes = () => {
           <Route
             path={[
               '/dashboard',
+              '/kelas',
+              '/peserta',
               '/Buttons',
               '/Dropdowns',
               '/NavigationMenus',
@@ -122,6 +127,8 @@ const Routes = () => {
                   variants={pageVariants}
                   transition={pageTransition}>
                   <Route path="/dashboard" component={DashboardDefault} />
+                  <Route path="/kelas" component={Kelas} />
+                  <Route path="/peserta" component={Peserta} />
                   <Route path="/Buttons" component={Buttons} />
                   <Route path="/Dropdowns" component={Dropdowns} />
                   <Route path="/NavigationMenus" component={NavigationMenus} />
